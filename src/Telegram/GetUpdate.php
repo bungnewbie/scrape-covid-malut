@@ -25,7 +25,7 @@ class GetUpdate
     private function return($id, $content)
     {
         $results = ['chat_id' => $id, 'text' => $content];
-        $telegram->sendMessage($results);
+        $this->telegram->sendMessage($results);
     }
 
     public function run()
