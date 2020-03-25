@@ -24,7 +24,7 @@ class GetUpdate
 
     private function return($id, $content)
     {
-        $results = ["chat_id" => $id, "text" => $content];
+        $results = ["chat_id" => $id, "text" => $content, "parse_mode" => "html"];
         $this->telegram->sendMessage($results);
     }
 
@@ -35,7 +35,11 @@ class GetUpdate
 
         switch ($text) {
             case "/start":
-                    $content = "Hello {$this->telegram->Username()} type <pre>/help</pre>";
+                    $content = "Hello {$this->telegram->Username()}, send <pre>/help</pre> to show the command list.";
+                    $this->return($id, $content);
+                break;
+            case '/help':
+                    $content = "/clq: all\n\nwhere kab:\n".implode("\n", build_command());
                     $this->return($id, $content);
                 break;
             default:
