@@ -1,3 +1,1 @@
-<?php
-
-dd("WELCOME BROO");
+<h1>@bungnewbie</h1>
