@@ -35,11 +35,19 @@ class GetUpdate
 
         switch ($text) {
             case "/start":
-                    $content = "Hello {$this->telegram->Username()}, send <pre>/help</pre> to show the command list.";
+                    $content = "Hello {$this->telegram->Username()}, send /help to show the command list.";
                     $this->return($id, $content);
                 break;
-            case '/help':
+            case "/help":
                     $content = "/clq: all\n\nwhere kab:\n".implode("\n", build_command());
+                    $this->return($id, $content);
+                break;
+            case "/clq":
+                    $content = "<pre>".toJson($this->all())."</pre>";
+                    $this->return($id, $content);
+                break;
+            case in_array($text, build_command()):
+                    $content = "<pre>".toJson($this->whereCity(unbuild_command($text)))."</pre>";
                     $this->return($id, $content);
                 break;
             default:
