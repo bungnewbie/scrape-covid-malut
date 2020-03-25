@@ -12,7 +12,7 @@ class ComposerStaticInitab07c10f9add48e3504cfefe94ceb7a8
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
-        'a4c116e36446d34eb46c221ba654aa8e' => __DIR__ . '/../..' . '/support/helper.php',
+        'e627eed5c7991d02a52bfc02d58ec316' => __DIR__ . '/../..' . '/support/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -39,6 +39,10 @@ class ComposerStaticInitab07c10f9add48e3504cfefe94ceb7a8
         'G' => 
         array (
             'Goutte\\' => 7,
+        ),
+        'B' => 
+        array (
+            'Bot\\' => 4,
         ),
     );
 
@@ -102,6 +106,10 @@ class ComposerStaticInitab07c10f9add48e3504cfefe94ceb7a8
         'Goutte\\' => 
         array (
             0 => __DIR__ . '/..' . '/fabpot/goutte/Goutte',
+        ),
+        'Bot\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
     );
 
