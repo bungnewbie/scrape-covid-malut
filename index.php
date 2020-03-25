@@ -8,7 +8,7 @@ use Bot\Covid;
  * Token from @botfather
  * @var string
  */
-$token = "";
+$token = "1006409107:AAGQEztMnBYeg-X_EPSudAhA_PfHWfe1t00";
 
 /**
  * Instance bot
