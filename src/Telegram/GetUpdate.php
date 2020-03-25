@@ -12,20 +12,18 @@ use Bot\Telegram\TelegramBot;
 
 class GetUpdate
 {
-    private $token;
+    private $telegram;
 
     public function __construct($token)
     {
-        $this->token = $token;
+        $this->telegram = new TelegramBot($token);
     }
 
     public function run()
     {
-        $telegram = new TelegramBot($this->token);
-
-        $text = $telegram->Text();
-        $chat_id = $telegram->ChatID();
+        $text = $this->telegram->Text();
+        $chat_id = $this->telegram->ChatID();
         $content = array('chat_id' => $chat_id, 'text' => $text);
-        $telegram->sendMessage($content);
+        $this->telegram->sendMessage($content);
     }
 }
