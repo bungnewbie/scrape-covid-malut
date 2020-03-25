@@ -8,7 +8,7 @@ use Bot\Telegram\GetUpdate;
  * Token from @botfather
  * @var string
  */
-$token = "1006409107:AAGQEztMnBYeg-X_EPSudAhA_PfHWfe1t00";
+$token = "";
 
 /**
  * Instance bot
