@@ -1,6 +1,6 @@
 <?php
 
-require "../vendor/autoload.php";
+require __DIR__."/../vendor/autoload.php";
 
 use Bot\Telegram\GetUpdate;
 use Symfony\Component\Dotenv\Dotenv;
@@ -12,7 +12,7 @@ $dotenv->load(__DIR__.'/.env');
  * Token from @botfather
  * @var string
  */
-$token = $_ENV["BOT_TOKEN"];
+$token = $_ENV['BOT_TOKEN'];
 
 /**
  * Instance bot
