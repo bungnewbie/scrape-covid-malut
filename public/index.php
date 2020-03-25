@@ -1,9 +1,22 @@
 <?php
 
-require "../vendor/autoload.php";
+require "vendor/autoload.php";
 
-use Bot\Scrape;
+use Bot\Covid;
 
-$result = (new Scrape())->exec();
+/**
+ * Token from @botfather
+ * @var string
+ */
+$token = "1006409107:AAGQEztMnBYeg-X_EPSudAhA_PfHWfe1t00";
 
-return print "<pre>".$result."</pre>";
+/**
+ * Instance bot
+ * @var Covid
+ */
+$bot = new Covid($token);
+
+/**
+ * Run bot
+ */
+$bot->run();
