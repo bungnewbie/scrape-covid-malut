@@ -2,6 +2,7 @@
 
 namespace Bot;
 
+use Exception;
 use Goutte\Client;
 
 class Cache
@@ -27,16 +28,20 @@ class Cache
 
 	public function run()
 	{
-		$crawler = (new Client())->request("GET", "https://covid19.ternatekota.go.id/");
+		try {
+			$crawler = (new Client())->request("GET", "https://covid19.ternatekota.go.id/");
 
-		$array   = $crawler->filter("table > tbody > tr > td")->each(function ($node) {
-			return $node->text();
-		});
+			$array   = $crawler->filter("table > tbody > tr > td")->each(function ($node) {
+				return $node->text();
+			});
 
-		$count   = $crawler->filter("table > tfoot > tr > th")->each(function($node) {
-			return $node->text();
-		});
+			$count   = $crawler->filter("table > tfoot > tr > th")->each(function($node) {
+				return $node->text();
+			});
 
-		return toJson(collect(array_merge($array, $count)));
+			return toJson(collect(array_merge($array, $count)));
+		} catch (Exception $e) {
+			return toJson($e->getMessage());
+		}
 	}
 }
