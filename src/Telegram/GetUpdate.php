@@ -35,14 +35,10 @@ class GetUpdate
 
         switch ($text) {
             case '/start':
-                    $this->return($id, [
-                        'helo from switch case'
-                    ]);
+                    $this->return($id, 'helo from switch case');
                 break;
             default:
-                    $this->return($id, [
-                        'command not found'
-                    ]);
+                    $this->return($id, 'command not found');
                 break;
         }
     }
