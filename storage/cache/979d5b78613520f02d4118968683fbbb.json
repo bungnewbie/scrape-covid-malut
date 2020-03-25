@@ -1,7 +1,7 @@
 [
     {
-        "kabupaten": "Kab. Halmahera Barat",
-        "isolasi_mandiri": "64",
+        "info": "Kab. Halmahera Barat",
+        "isolasi_mandiri": "73",
         "odp": "0",
         "pdp": "1",
         "positif": "0",
@@ -9,7 +9,7 @@
         "meninggal": "0"
     },
     {
-        "kabupaten": "Kab. Halmahera Tengah",
+        "info": "Kab. Halmahera Tengah",
         "isolasi_mandiri": "14",
         "odp": "0",
         "pdp": "0",
@@ -18,7 +18,7 @@
         "meninggal": "0"
     },
     {
-        "kabupaten": "Kab. Kepulauan Sula",
+        "info": "Kab. Kepulauan Sula",
         "isolasi_mandiri": "123",
         "odp": "8",
         "pdp": "0",
@@ -27,8 +27,8 @@
         "meninggal": "0"
     },
     {
-        "kabupaten": "Kab. Halmahera Selatan",
-        "isolasi_mandiri": "1",
+        "info": "Kab. Halmahera Selatan",
+        "isolasi_mandiri": "26",
         "odp": "1",
         "pdp": "0",
         "positif": "0",
@@ -36,17 +36,8 @@
         "meninggal": "0"
     },
     {
-        "kabupaten": "Kab. Halmahera Utara",
-        "isolasi_mandiri": "4",
-        "odp": "1",
-        "pdp": "0",
-        "positif": "0",
-        "sembuh": "0",
-        "meninggal": "0"
-    },
-    {
-        "kabupaten": "Kab. Halmahera Timur",
-        "isolasi_mandiri": "57",
+        "info": "Kab. Halmahera Utara",
+        "isolasi_mandiri": "84",
         "odp": "0",
         "pdp": "0",
         "positif": "0",
@@ -54,8 +45,17 @@
         "meninggal": "0"
     },
     {
-        "kabupaten": "Kab. Pulau Morotai",
-        "isolasi_mandiri": "63",
+        "info": "Kab. Halmahera Timur",
+        "isolasi_mandiri": "165",
+        "odp": "7",
+        "pdp": "0",
+        "positif": "0",
+        "sembuh": "0",
+        "meninggal": "0"
+    },
+    {
+        "info": "Kab. Pulau Morotai",
+        "isolasi_mandiri": "196",
         "odp": "0",
         "pdp": "0",
         "positif": "0",
@@ -63,7 +63,7 @@
         "meninggal": "0"
     },
     {
-        "kabupaten": "Kab. Pulau Taliabu",
+        "info": "Kab. Pulau Taliabu",
         "isolasi_mandiri": "0",
         "odp": "0",
         "pdp": "0",
@@ -72,20 +72,30 @@
         "meninggal": "0"
     },
     {
-        "kabupaten": "Kota Ternate",
-        "isolasi_mandiri": "119",
-        "odp": "1",
-        "pdp": "3",
+        "info": "Kota Ternate",
+        "isolasi_mandiri": "279",
+        "odp": "23",
+        "pdp": "4",
         "positif": "1",
         "sembuh": "0",
         "meninggal": "0"
     },
     {
-        "kabupaten": "Kota Tidore Kepulauan",
-        "isolasi_mandiri": "254",
+        "info": "Kota Tidore Kepulauan",
+        "isolasi_mandiri": "317",
         "odp": "5",
         "pdp": "0",
         "positif": "0",
+        "sembuh": "0",
+        "meninggal": "0"
+    }
+][
+    {
+        "info": "Total",
+        "isolasi_mandiri": "1277",
+        "odp": "44",
+        "pdp": "5",
+        "positif": "1",
         "sembuh": "0",
         "meninggal": "0"
     }

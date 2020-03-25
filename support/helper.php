@@ -25,7 +25,7 @@ if (! function_exists('collect')) {
 	{
 		return array_map(function($i) {
 			return [
-				'kabupaten'		  => $i[0],
+				'info'		      => $i[0],
 				'isolasi_mandiri' => $i[1],
 				'odp' 			  => $i[2],
 				'pdp' 			  => $i[3],
@@ -74,6 +74,18 @@ if (! function_exists('toJson')) {
 	function toJson($array)
 	{
 		return json_encode($array, JSON_PRETTY_PRINT);
+	}
+}
+
+if (! function_exists('pretty')) {
+	/**
+	 * Pretty json
+	 * @param  array $array
+	 * @return json
+	 */
+	function pretty($array)
+	{
+		"<pre>".toJson($array)."</pre>";
 	}
 }
 

@@ -27,16 +27,16 @@ class Cache
 
 	public function run()
 	{
-		if($this->exists()) {
-			return file_get_contents($this->filename());
-		}
 		$crawler = (new Client())->request("GET", "https://covid19.ternatekota.go.id/");
+
 		$array   = $crawler->filter("table > tbody > tr > td")->each(function ($node) {
 			return $node->text();
 		});
 
-		file_put_contents($this->filename(), toJson(collect($array)));
-		chmod($this->filename(), 0777);
-		return toJson(collect($array));
+		$count   = $crawler->filter("table > tfoot > tr > th")->each(function($node) {
+			return $node->text();
+		});
+
+		return toJson(collect(array_merge($array, $count)));
 	}
 }

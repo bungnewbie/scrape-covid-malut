@@ -39,15 +39,17 @@ class GetUpdate
                     $this->return($id, $content);
                 break;
             case "/help":
-                    $content = "/clq: all\n\nwhere kab:\n".implode("\n", build_command());
+                    $content = "/clq: all\n/count: count malut\nwhere kab:\n".implode("\n", build_command());
                     $this->return($id, $content);
                 break;
             case "/clq":
-                    $content = "<pre>".toJson($this->all())."</pre>";
-                    $this->return($id, $content);
+                    $this->return($id, pretty($this->all()));
+                break;
+            case "/count":
+                    $this->return($id, "comming soon t(-_-)t");
                 break;
             case in_array($text, build_command()):
-                    $content = "<pre>".toJson($this->whereCity(unbuild_command($text)))."</pre>";
+                    $content = pretty($this->whereCity(unbuild_command($text)));
                     $this->return($id, $content);
                 break;
             default:
