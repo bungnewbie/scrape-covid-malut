@@ -24,7 +24,7 @@ class GetUpdate
 
     private function return($id, $content)
     {
-        $results = ['chat_id' => $id, 'text' => $content];
+        $results = ["chat_id" => $id, "text" => $content];
         $this->telegram->sendMessage($results);
     }
 
@@ -34,11 +34,12 @@ class GetUpdate
         $text = $this->telegram->Text();
 
         switch ($text) {
-            case '/start':
-                    $this->return($id, ['helo from switch case']);
+            case "/start":
+                    $content = "Hello {$this->telegram->Username()} type <pre>/help</pre>";
+                    $this->return($id, $content);
                 break;
             default:
-                    $this->return($id, ['command not found']);
+                    $this->return($id, "command not found");
                 break;
         }
     }
