@@ -25,7 +25,7 @@ class GetUpdate
 
         $text = $telegram->Text();
         $chat_id = $telegram->ChatID();
-        $content = array('chat_id' => $chat_id, 'text' => 'Hello');
+        $content = array('chat_id' => $chat_id, 'text' => $text);
         $telegram->sendMessage($content);
     }
 }
