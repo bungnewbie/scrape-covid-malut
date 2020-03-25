@@ -1,4 +1,4 @@
-/storage/cache/*.json
+storage/cache/*.json
 /.phpintel
 /vendor
-.lock
+composer.lock
