@@ -65,6 +65,30 @@ if (! function_exists('unbuild_command')) {
 	}
 }
 
+if (! function_exists('toJson')) {
+	/**
+	 * Transform json to array
+	 * @param  array $array
+	 * @return json
+	 */
+	function toJson($array)
+	{
+		return json_encode($array, JSON_PRETTY_PRINT);
+	}
+}
+
+if (! function_exists('toArray')) {
+	/**
+	 * Transform json to array
+	 * @param  json $json
+	 * @return array
+	 */
+	function toArray($json)
+	{
+		return (array)json_decode($json, true);
+	}
+}
+
 if (! function_exists('dd')) {
 	/**
 	 * Die dump pretty print debugging

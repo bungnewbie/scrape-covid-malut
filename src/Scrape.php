@@ -4,16 +4,21 @@ namespace Bot;
 
 use Goutte\Client;
 
-class Scrape
+class Scrape extends Cache
 {
-	static public function exec()
+	public function exec()
 	{
-		$client  = new Client();
+		return $this->run();
+	}
+
+	public function call()
+	{
+		$client  = new Client;
 		$crawler = $client->request("GET", "https://covid19.ternatekota.go.id/");
 		$array   = $crawler->filter("table > tbody > tr > td")->each(function ($node) {
 			return $node->text();
 		});
-
-		return json_encode(collect($array), true);
+		file_put_contents($this->filename(), toJson(collect($array)));
+		return toJson(collect($array));
 	}
 }

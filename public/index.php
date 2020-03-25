@@ -4,6 +4,7 @@ require "../vendor/autoload.php";
 
 use Bot\Scrape;
 
-$result = Scrape::exec();
+$result = (new Scrape())->exec();
 
-return print "<pre>".$result."</pre>";
+dd($result);
+// return print "<pre>".$result."</pre>";
