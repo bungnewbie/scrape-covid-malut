@@ -51,7 +51,7 @@ class GetUpdate
                     $this->return($id, $content);
                 break;
             default:
-                    $this->return($id, "command not found");
+                    $this->return($id, "command not found :(");
                 break;
         }
     }
