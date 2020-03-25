@@ -1,0 +1,4 @@
+/storage/cache/*.json
+/.phpintel
+/vendor
+.lock

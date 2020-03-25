@@ -1,0 +1,25 @@
+{
+    "name": "bungnewbie/scrape-covid-malut",
+    "description": "Trying to scrape https://covid19.ternatekota.go.id/ for get corona suspect",
+    "require": {
+        "php": "^7.4",
+        "ext-curl": "^7.4",
+        "fabpot/goutte": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bot\\": "src"
+        },
+        "files": [
+            "support/helper.php"
+        ]
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rizkhal Lamaau",
+            "email": "lamaaurizkhal@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
