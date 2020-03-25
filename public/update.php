@@ -12,7 +12,7 @@ $dotenv->load(__DIR__.'/.env');
  * Token from @botfather
  * @var string
  */
-$token = $_ENV("BOT_TOKEN");
+$token = $_ENV["BOT_TOKEN"];
 
 /**
  * Instance bot
