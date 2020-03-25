@@ -85,7 +85,7 @@ if (! function_exists('pretty')) {
 	 */
 	function pretty($array)
 	{
-		"<pre>".toJson($array)."</pre>";
+		return "<pre>".toJson($array)."</pre>";
 	}
 }
 
