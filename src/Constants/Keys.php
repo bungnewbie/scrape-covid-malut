@@ -17,6 +17,7 @@ abstract class Keys
 				'taliabu',
 				'ternate',
 				'tidore',
+				'count'
 			];
 	}
 }
