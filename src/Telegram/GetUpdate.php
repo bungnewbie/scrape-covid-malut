@@ -46,7 +46,7 @@ class GetUpdate
                     $this->return($id, pretty($this->all()));
                 break;
             case "/act":
-                    $results = ["chat_id" => $id, "text" => "Please wait...", "parse_mode" => "html"];
+                    $results = ["chat_id" => $id, "action" => "Please wait..."];
                     $this->telegram->sendChatAction($results);
                 break;
             case in_array($text, build_command()):
