@@ -2,8 +2,8 @@
 
 namespace Bot;
 
-use Bot\Crawler\Crawler;
 use Bot\Constants\Keys;
+use Bot\Crawler\Crawler;
 
 class Exe extends Crawler
 {

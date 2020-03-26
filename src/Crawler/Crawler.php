@@ -2,7 +2,6 @@
 
 namespace Bot\Crawler;
 
-// use GuzzleHttp\Client;
 use Goutte\Client;
 use Bot\Crawler\Exceptions\CrawlerException;
 use Symfony\Component\HttpClient\HttpClient;
