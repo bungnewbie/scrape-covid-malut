@@ -45,6 +45,10 @@ class GetUpdate
             case "/clq":
                     $this->return($id, pretty($this->all()));
                 break;
+            case "/act":
+                    $results = ["chat_id" => $id, "text" => "Please wait...", "parse_mode" => "html"];
+                    $this->telegram->sendChatAction($results);
+                break;
             case in_array($text, build_command()):
                     $content = pretty($this->whereCity(unbuild_command($text)));
                     $this->return($id, $content);
