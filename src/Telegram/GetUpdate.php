@@ -40,7 +40,7 @@ class GetUpdate
                     $this->return($id, $content);
                 break;
             case "/help":
-                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/region [name]: where region";
+                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/region [name]: where region\n/list_of_prov: show the province list\n/list_of_region: show the region list";
                     $this->return($id, $content);
                 break;
             case "/global":
@@ -51,7 +51,10 @@ class GetUpdate
                 break;
             case "/list_of_prov":
                     $content = implode("\n", Keys::province());
-                    $this->return($id, "haha");
+                    $this->return($id, $content);
+                break;
+            case "/list_of_region":
+                    $this->return($id, "in progres :)");
                 break;
             default:
                     $this->return($id, "command not found :(");
