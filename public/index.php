@@ -6,9 +6,11 @@ use Bot\Exe;
 
 $str = "/prov njs";
 
-$str = substr($str, 0, strrpos($str, ' '));
+if(build_command($str) == "/prov") {
+	dd('nice');
+}
 
-dd($str);
+die;
 
 
 $x = implode("\n", \Bot\Constants\Keys::province());
