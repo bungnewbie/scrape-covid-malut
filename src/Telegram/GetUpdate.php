@@ -53,7 +53,11 @@ class GetUpdate
                     if(in_array(pluck_reply($text), Keys::province())) {
                         $this->return($id, $text);
                     } else {
-                        $this->return($id, "params not found");
+                        if(empty(pluck_reply($text))) {
+                            $this->return($id, "mising params");
+                        }
+
+                        $this->return($id, "params not found, send /list_of_prov to show the list");
                     }
                 break;
             case "/list_of_prov":
