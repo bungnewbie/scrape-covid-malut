@@ -55,9 +55,10 @@ class GetUpdate
                     }
                     if(empty(pluck_reply($text))) {
                         $this->return($id, "mising params");
+                    } else {
+                        $this->return($id, "params not found, send /list_of_prov to show the list");
                     }
 
-                    $this->return($id, "params not found, send /list_of_prov to show the list");
                 break;
             case "/list_of_prov":
                     $content = implode("\n", Keys::province());
