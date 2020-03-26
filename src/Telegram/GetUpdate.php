@@ -49,13 +49,11 @@ class GetUpdate
             case "/indonesia":
                     $this->return($id, "coming soon :)");
                 break;
-            case command($text):
-                    if(command($text) == "/prov") {
-                        if(in_array(pluck_reply($text), Keys::province())) {
-                            $this->return($id, $text);
-                        } else {
-                            $this->return($id, "params not found");
-                        }
+            case command($text) == "/prov":
+                    if(in_array(pluck_reply($text), Keys::province())) {
+                        $this->return($id, $text);
+                    } else {
+                        $this->return($id, "params not found");
                     }
                 break;
             case "/list_of_prov":
