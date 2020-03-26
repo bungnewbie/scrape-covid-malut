@@ -8,6 +8,7 @@ namespace Bot\Telegram;
  * @author Muhammad Rizkal Lamaau <lamaaurizkhal@gmail.com>
  */
 
+use Bot\Constants\Keys;
 use Bot\Traits\Transformers;
 use Bot\Telegram\TelegramBot;
 
@@ -39,11 +40,17 @@ class GetUpdate
                     $this->return($id, $content);
                 break;
             case "/help":
-                    $content = "/clq: all\n/count: count malut\nwhere kab:\n".implode("\n", build_command());
+                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/region [name]: where region");
                     $this->return($id, $content);
                 break;
-            case "/clq":
-                    $this->return($id, pretty($this->all()));
+            case "/global":
+                    $this->return($id, "coming soon :)");
+                break;
+            case "/indonesia":
+                    $this->return($id, "coming soon :)");
+                break;
+            case "/list_of_prov":
+                    $this->return($id, implode("\n", Keys::province()));
                 break;
             case in_array($text, build_command()):
                     $content = pretty($this->whereCity(unbuild_command($text)));

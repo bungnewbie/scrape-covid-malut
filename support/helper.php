@@ -78,13 +78,13 @@ if (! function_exists('build_command')) {
 	 * This methid add backslash array values
 	 * @return array
 	 */
-	function build_command()
-	{
-		foreach (\Bot\Constants\Keys::key() as $key => &$value) {
-			$results[] = '/'.$value;
-		}
-		return $results;
-	}
+	// function build_command()
+	// {
+	// 	foreach (\Bot\Constants\Keys::key() as $key => &$value) {
+	// 		$results[] = '/'.$value;
+	// 	}
+	// 	return $results;
+	// }
 }
 
 if (! function_exists('unbuild_command')) {

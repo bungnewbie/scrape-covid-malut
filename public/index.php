@@ -6,7 +6,4 @@ use Bot\Exe;
 
 $result = new Exe;
 
-dd($result->sulsel());
-dd($result->malut());
-
-return print $result->sulsel();
+print $result->sulsel();

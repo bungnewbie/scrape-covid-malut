@@ -7,6 +7,11 @@ use Bot\Crawler\Crawler;
 
 class Exe extends Crawler
 {
+	public function whereLoc($loc)
+	{
+		//
+	}
+
 	public function malut()
 	{
 		$filter  = "table > tbody > tr > td";
