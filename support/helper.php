@@ -74,8 +74,7 @@ if (! function_exists('collect')) {
 
 if (! function_exists('build_command')) {
 	/**
-	 * Build command for telegram get where city
-	 * This methid add backslash array values
+	 * Build command
 	 * @return array
 	 */
 	// function build_command()
@@ -85,6 +84,10 @@ if (! function_exists('build_command')) {
 	// 	}
 	// 	return $results;
 	// }
+	function build_command($string)
+	{
+		return substr($str, 0, strrpos($string, ' '))
+	}
 }
 
 if (! function_exists('unbuild_command')) {

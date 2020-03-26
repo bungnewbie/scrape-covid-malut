@@ -49,15 +49,15 @@ class GetUpdate
             case "/indonesia":
                     $this->return($id, "coming soon :)");
                 break;
-            case "/prov":
-                    if(in_array($text, Keys::province())) {
-                        $this->return($id, $text);
-                    }
-                    $this->return($id, "command not found :(");
-                break;
-            case "/region":
-                    $this->return($id, $text);
-                break;
+            // case "/prov":
+            //         if(in_array($text, Keys::province())) {
+            //             $this->return($id, $text);
+            //         }
+            //         $this->return($id, "hahaha");
+            //     break;
+            // case "/region":
+            //         $this->return($id, $text);
+            //     break;
             case "/list_of_prov":
                     $content = implode("\n", Keys::province());
                     $this->return($id, $content);
@@ -69,6 +69,10 @@ class GetUpdate
                     $this->return($id, "in progres :)");
                 break;
             default:
+                    if(build_command($text) == "/prov") {
+                        $this->return($id, "prov");
+                    }
+
                     $this->return($id, "command not found :(");
                 break;
         }
