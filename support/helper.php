@@ -86,7 +86,7 @@ if (! function_exists('build_command')) {
 	// }
 	function build_command($string)
 	{
-		return substr($str, 0, strrpos($string, ' '))
+		return substr($str, 0, strrpos($string, ' '));
 	}
 }
 
