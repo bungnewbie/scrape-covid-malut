@@ -2,18 +2,14 @@
 
 namespace Bot\Traits;
 
-use Bot\Scrape;
+use Bot\Exe;
 use Bot\Constants\Keys;
 
 trait Transformers
 {
-	public function all()
+	public function prov()
 	{
-		$json = (new Scrape())->exec();
-		foreach (toArray($json) as $key => $value) {
-			$results[Keys::key()[$key]]=$value;
-		}
-		return $results;
+		return (new Exe())->exec()->sulsel();
 	}
 
 	public function whereCity($city)

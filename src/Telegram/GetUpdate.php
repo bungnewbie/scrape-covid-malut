@@ -51,7 +51,7 @@ class GetUpdate
                 break;
             case command($text) == "/prov":
                     if(in_array(pluck_reply($text), Keys::province())) {
-                        $this->return($id, $text);
+                        $this->return($id, $this->prov());
                     } else {
                         if(empty(pluck_reply($text))) {
                             $this->return($id, "mising params");

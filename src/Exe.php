@@ -7,9 +7,9 @@ use Bot\Crawler\Crawler;
 
 class Exe extends Crawler
 {
-	public function whereLoc($loc)
+	public function exec(): self
 	{
-		//
+		return $this;
 	}
 
 	public function malut()
