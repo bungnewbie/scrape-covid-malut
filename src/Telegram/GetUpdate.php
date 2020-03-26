@@ -34,6 +34,12 @@ class GetUpdate
         $id   = $this->telegram->ChatID();
         $text = $this->telegram->Text();
 
+        if(build_command($text) == "/prov") {
+            $this->return($id, "haha");
+        } else {
+            $this->return($id, "goblok");
+        }
+
         switch ($text) {
             case "/start":
                     $content = "Hello {$this->telegram->Username()}, send /help to show the command list.";
@@ -55,9 +61,6 @@ class GetUpdate
             //         }
             //         $this->return($id, "hahaha");
             //     break;
-            // case "/region":
-            //         $this->return($id, $text);
-            //     break;
             case "/list_of_prov":
                     $content = implode("\n", Keys::province());
                     $this->return($id, $content);
@@ -69,10 +72,6 @@ class GetUpdate
                     $this->return($id, "in progres :)");
                 break;
             default:
-                    if(build_command($text) == "/prov") {
-                        $this->return($id, "prov");
-                    }
-
                     $this->return($id, "command not found :(");
                 break;
         }
