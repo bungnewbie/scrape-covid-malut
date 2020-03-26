@@ -46,8 +46,9 @@ class GetUpdate
                     $this->return($id, pretty($this->all()));
                 break;
             case "/act":
-                    $results = ["chat_id" => $id, "action" => "Please wait..."];
+                    $results = ["chat_id" => $id, "text" => "Please wait..."];
                     $this->telegram->sendChatAction($results);
+                    $this->return($id, "hahah");
                 break;
             case in_array($text, build_command()):
                     $content = pretty($this->whereCity(unbuild_command($text)));
