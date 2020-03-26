@@ -4,9 +4,9 @@ require __DIR__."/../vendor/autoload.php";
 
 use Bot\Exe;
 
-$str = "/prov njsd";
+$str = "/prov njsd jwndj";
 
-$x = pluck_reply($str);
+$x = command($str);
 dd($x);
 
 

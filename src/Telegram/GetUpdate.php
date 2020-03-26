@@ -49,12 +49,6 @@ class GetUpdate
             case "/indonesia":
                     $this->return($id, "coming soon :)");
                 break;
-            case build_command($text) == "/prov":
-                    if(in_array(pluck_reply($text), Keys::province())) {
-                        $this->return($id, $text);
-                    }
-                    $this->return($id, "hahaha");
-                break;
             case "/list_of_prov":
                     $content = implode("\n", Keys::province());
                     $this->return($id, $content);
@@ -66,6 +60,18 @@ class GetUpdate
                     $this->return($id, "in progres :)");
                 break;
             default:
+                    switch (command($text)) {
+                        case "/prov":
+                                if(in_array(pluck_reply($text), Keys::province())) {
+                                    $this->return($id, $text);
+                                }
+                               $this->return($id, "check your params");
+                            break;
+
+                        default:
+                                $this->return($id, "mising parameter :(");
+                            break;
+                    }
                     $this->return($id, "command not found :(");
                 break;
         }

@@ -72,12 +72,12 @@ if (! function_exists('collect')) {
 	}
 }
 
-if (! function_exists('build_command')) {
+if (! function_exists('reply')) {
 	/**
-	 * Build command
+	 * Reply
 	 * @return array
 	 */
-	function build_command($string)
+	function reply($string)
 	{
 		return substr($string, 0, strrpos($string, ' '));
 	}
@@ -93,6 +93,18 @@ if (! function_exists('pluck_reply')) {
 	{
 		$arr = explode(" ", trim($string));
 		return (count($arr)>2)?false:$arr[1];
+	}
+}
+
+if (! function_exists('command')) {
+	/**
+	 * command
+	 * @return array
+	 */
+	function command($string)
+	{
+		$arr = explode(" ", trim($string));
+		return $arr[0];
 	}
 }
 
