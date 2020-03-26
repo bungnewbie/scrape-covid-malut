@@ -4,13 +4,10 @@ require __DIR__."/../vendor/autoload.php";
 
 use Bot\Exe;
 
-$str = "/prov njs";
+$str = "/prov njsd";
 
-if(build_command($str) == "/prov") {
-	dd('nice');
-}
-
-die;
+$x = pluck_reply($str);
+dd($x);
 
 
 $x = implode("\n", \Bot\Constants\Keys::province());

@@ -77,16 +77,22 @@ if (! function_exists('build_command')) {
 	 * Build command
 	 * @return array
 	 */
-	// function build_command()
-	// {
-	// 	foreach (\Bot\Constants\Keys::key() as $key => &$value) {
-	// 		$results[] = '/'.$value;
-	// 	}
-	// 	return $results;
-	// }
 	function build_command($string)
 	{
 		return substr($string, 0, strrpos($string, ' '));
+	}
+}
+
+if (! function_exists('pluck_reply')) {
+	/**
+	 * Pluck reply from user
+	 * @param  string $string
+	 * @return mixed
+	 */
+	function pluck_reply($string)
+	{
+		$arr = explode(" ", trim($string));
+		return (count($arr)>2)?false:$arr[1];
 	}
 }
 
