@@ -9,11 +9,7 @@ trait Transformers
 {
 	public function prov()
 	{
-		return (new Exe())->exec()->sulsel();
-	}
-
-	public function whereCity($city)
-	{
-		return @$this->all()[$city];
+		$exec = new Exe;
+		return $exec->sulsel();
 	}
 }

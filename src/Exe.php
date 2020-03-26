@@ -7,11 +7,6 @@ use Bot\Crawler\Crawler;
 
 class Exe extends Crawler
 {
-	public function exec(): self
-	{
-		return $this;
-	}
-
 	public function malut()
 	{
 		$filter  = "table > tbody > tr > td";
