@@ -50,11 +50,8 @@ class GetUpdate
                     $this->return($id, "coming soon :)");
                 break;
             case "/list_of_prov":
-                    $this->return($id, implode("\n", Keys::province()));
-                break;
-            case in_array($text, build_command()):
-                    $content = pretty($this->whereCity(unbuild_command($text)));
-                    $this->return($id, $content);
+                    $content = implode("\n", Keys::province());
+                    $this->return($id, "haha");
                 break;
             default:
                     $this->return($id, "command not found :(");
