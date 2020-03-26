@@ -9,7 +9,7 @@ trait Transformers
 {
 	public function prov()
 	{
-		$exec = new Exe;
-		return $exec->sulsel();
+		$result = new Exe;
+		return $result->sulsel();
 	}
 }
