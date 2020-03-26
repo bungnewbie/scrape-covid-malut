@@ -50,7 +50,7 @@ class GetUpdate
                     $this->return($id, "coming soon :)");
                 break;
             case build_command($text) == "/prov":
-                    if(pluck_reply(in_array($text)), Keys::province()) {
+                    if(in_array(pluck_reply($text), Keys::province())) {
                         $this->return($id, $text);
                     }
                     $this->return($id, "hahaha");
