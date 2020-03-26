@@ -40,7 +40,7 @@ class GetUpdate
                     $this->return($id, $content);
                 break;
             case "/help":
-                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/region [name]: where region\n/list_of_prov: show the province list\n/list_of_region: show the region list";
+                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/region [name]: where region\n/list_of_prov: show the province list\n/list_of_region: show the region list\n/example: how to use";
                     $this->return($id, $content);
                 break;
             case "/global":
@@ -49,10 +49,10 @@ class GetUpdate
             case "/indonesia":
                     $this->return($id, "coming soon :)");
                 break;
-            case "/prov ".$text:
+            case "/prov":
                     $this->return($id, $text);
                 break;
-            case "/region ".$text:
+            case "/region":
                     $this->return($id, $text);
                 break;
             case "/list_of_prov":
