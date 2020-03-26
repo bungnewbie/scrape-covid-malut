@@ -4,7 +4,7 @@ namespace Bot\Cache\Exceptions;
 
 use Exception;
 
-class CahceException extends Exception
+class CacheException extends Exception
 {
 	//
 }

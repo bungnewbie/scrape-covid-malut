@@ -49,10 +49,10 @@ class GetUpdate
             case "/indonesia":
                     $this->return($id, "coming soon :)");
                 break;
-            case "/prov".$text:
+            case "/prov":
                     $this->return($id, $text);
                 break;
-            case "/region".$text:
+            case "/region":
                     $this->return($id, $text);
                 break;
             case "/list_of_prov":
