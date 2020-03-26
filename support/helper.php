@@ -1,5 +1,16 @@
 <?php
 
+if (! function_exists('timestamp')) {
+	/**
+	 * Timestamp Asia/Jakarta
+	 * @return string
+	 */
+	function timestamp()
+	{
+		return date('Y-m-d H:i:s T', time());
+	}
+}
+
 if (! function_exists('pluck')) {
 	/**
 	 * Get array where key
@@ -15,6 +26,30 @@ if (! function_exists('pluck')) {
 	}
 }
 
+
+if (! function_exists('map')) {
+	/**
+	 * Maping array
+	 * @param  array $array
+	 * @return array
+	 */
+	function map($array)
+	{
+		return array_map(function($i) {
+			return [
+				'wil'	  	 	  => @$i[0],
+				'isolasi_mandiri' => @$i[1],
+				'odp'			  => @$i[2],
+				'pdp'			  => @$i[3],
+				'positif'		  => @$i[4],
+				'sembuh'		  => @$i[5],
+				'meninggal'		  => @$i[6],
+				'scraped_at'	  => timestamp(),
+			];
+		}, array_chunk($array, 7));
+	}
+}
+
 if (! function_exists('collect')) {
 	/**
 	 * Collect array
@@ -25,13 +60,13 @@ if (! function_exists('collect')) {
 	{
 		return array_map(function($i) {
 			return [
-				'info'		      => $i[0],
-				'isolasi_mandiri' => $i[1],
-				'odp' 			  => $i[2],
-				'pdp' 			  => $i[3],
-				'positif' 		  => $i[4],
-				'sembuh' 		  => $i[5],
-				'meninggal' 	  => $i[6],
+				'wil'	  	 => @$i[0],
+				'odp' 	  	 => @$i[1],
+				'pdp' 	  	 => @$i[2],
+				'positif' 	 => @$i[3],
+				'total'   	 => @$i[4],
+				'sembuh'  	 => @$i[5],
+				'scraped_at' => timestamp(),
 			];
 		}, array_chunk($array, 7));
 	}
@@ -98,6 +133,30 @@ if (! function_exists('toArray')) {
 	function toArray($json)
 	{
 		return (array)json_decode($json, true);
+	}
+}
+
+if (! function_exists('replace_with_space')) {
+	/**
+	 * To lower and replace string using underscore
+	 * @param  string $string
+	 * @return string
+	 */
+	function replace_with_space($string)
+	{
+		return strtolower(str_replace(" ", "_", $string));
+	}
+}
+
+if (! function_exists('replace_dot_with_space')) {
+	/**
+	 * Remove dot and with space and replace with underscore
+	 * @param  string $string
+	 * @return string
+	 */
+	function replace_dot_with_space($string) {
+		$result = strtolower(str_replace(".", "", $string));
+		return str_replace(" ", "_", $result);
 	}
 }
 

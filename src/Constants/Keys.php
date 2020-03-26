@@ -4,7 +4,7 @@ namespace Bot\Constants;
 
 abstract class Keys
 {
-	static public function key(): array
+	static public function malut(): array
 	{
 		return [
 				'halbar',

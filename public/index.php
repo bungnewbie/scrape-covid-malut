@@ -2,8 +2,11 @@
 
 require __DIR__."/../vendor/autoload.php";
 
-use Bot\Scrape;
+use Bot\Exe;
 
-$result = (new Scrape())->exec();
+$result = new Exe;
 
-return print "<pre>".$result."</pre>";
+dd($result->sulsel());
+dd($result->malut());
+
+return print $result->sulsel();
