@@ -49,11 +49,20 @@ class GetUpdate
             case "/indonesia":
                     $this->return($id, "coming soon :)");
                 break;
+            case "/prov ".$text:
+                    $this->return($id, $text);
+                break;
+            case "/region ".$text:
+                    $this->return($id, $text);
+                break;
             case "/list_of_prov":
                     $content = implode("\n", Keys::province());
                     $this->return($id, $content);
                 break;
             case "/list_of_region":
+                    $this->return($id, "in progres :)");
+                break;
+            case "/example":
                     $this->return($id, "in progres :)");
                 break;
             default:

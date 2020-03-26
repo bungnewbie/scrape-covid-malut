@@ -7,8 +7,8 @@ abstract class Keys
 	static public function province()
 	{
 		return [
-			"malut",
-			"sulsel"
+			"malut: Maluku Utara",
+			"sulsel: Sulawesi Selatan"
 		];
 	}
 }
