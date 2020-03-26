@@ -50,7 +50,10 @@ class GetUpdate
                     $this->return($id, "coming soon :)");
                 break;
             case "/prov":
-                    $this->return($id, $text);
+                    if(in_array($text, Keys::province())) {
+                        $this->return($id, $text);
+                    }
+                    $this->return($id, "command not found :(");
                 break;
             case "/region":
                     $this->return($id, $text);
