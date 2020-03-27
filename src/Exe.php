@@ -9,13 +9,14 @@ class Exe extends Crawler
 {
 	public function exec($reply)
 	{
-		if(in_array($reply, Keys::province())) {
-			if($reply == "malut") {
-				return $this->malut();
-			}
-			if($reply == "sulsel") {
-				return $this->sulsel();
-			}
+		switch ($reply) {
+			case 'sulsel':
+					return $this->sulsel();
+				break;
+			case 'malut':
+					return $this->malut();
+				break;
+			default: break;
 		}
 	}
 
