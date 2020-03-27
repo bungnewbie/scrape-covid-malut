@@ -69,7 +69,7 @@ class GetUpdate
 
                     if(in_array($prov, Keys::province())) {
                         if(in_array($region, $this->province($prov)->command())) {
-                            $this->return($id, $prov." ".$region);
+                            $this->return($id, "hahaha");
                         } else {
                             $this->return($id, "params <strong>{$region}</strong> not found, send /list_of_reg to show the list");
                         }

@@ -7,6 +7,7 @@ use Bot\Constants\Keys;
 
 $result = new Exe();
 
+// dd(Keys::province());
 $pretty = $result->province("malut")->command();
 // $pretty = $result->province("malut")->regional("kota_ternate")->get();
 dd($pretty);
