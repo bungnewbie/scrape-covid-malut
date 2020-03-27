@@ -11,13 +11,19 @@ class Crawler
 	public function scrape($filter, $url)
 	{
 		try {
-			$client  = new Client(HttpClient::create(['verify_host' => false, 'verify_peer' => false]));
+			$client  = new Client(HttpClient::create(['timeout' => 60, 'verify_host' => false, 'verify_peer' => false]));
 			$crawler = $client->request("GET", $url);
-			return $crawler->filter($filter)->each(function ($node) {
+			$crawler = $crawler->filter($filter)->each(function ($node) {
 				return $node->text();
 			});
+
+			return [
+				"attribute" => map($crawler),
+				"scrape_at" => timestamp()
+			];
+
 		} catch (CrawlerException $e) {
-			return $e->getMessage();
+			return dd($e->getMessage());
 		}
 	}
 }

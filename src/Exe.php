@@ -3,32 +3,16 @@
 namespace Bot;
 
 use Bot\Crawler\Crawler;
+use Bot\Traits\Transformers;
 
 class Exe extends Crawler
 {
-	public function exec($reply)
-	{
-		switch ($reply) {
-			case 'malut':
-					return $this->malut();
-				break;
-			case 'sulsel':
-					return $this->sulsel();
-				break;
-			default: break;
-		}
-	}
+	use Transformers;
 
 	public function malut()
 	{
 		$filter  = "table > tbody > tr > td";
-		$payload = $this->scrape($filter, "https://covid19.ternatekota.go.id/");
-
-		foreach (map($payload) as $key => $value) {
-			$results["attribute"][replace_dot_with_space($value["regional"])] = $value;
-		}
-
-		return $results;
+		return $this->scrape($filter, "https://covid19.ternatekota.go.id/");
 	}
 
 	public function sulsel()

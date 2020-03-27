@@ -3,12 +3,9 @@
 require __DIR__."/../vendor/autoload.php";
 
 use Bot\Exe;
+use Bot\Constants\Keys;
 
 $result = new Exe();
-
-$malut = $result->malut();
-foreach ($malut["attribute"] as $key => $value) {
-	foreach ($value as $k => $v) {
-		echo $k.": ".$value[$k]."<br>";
-	}
-}
+$pretty = $result->province("malut")->get();
+dd(pretty($pretty));
+dd($result->prov("malut")->regional("kota_ternate"));

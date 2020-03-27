@@ -2,18 +2,53 @@
 
 namespace Bot\Traits;
 
-use Bot\Exe;
 use Bot\Constants\Keys;
 
 trait Transformers
 {
-	public function prov($reply)
+	protected $count;
+
+	protected $province;
+
+	protected $regional;
+
+	protected $resultante;
+
+	public function province($reply)
 	{
-		$bot = new Exe;
-		foreach ($bot->exec($reply)["attribute"] as $key => $value) {
-			foreach ($value as $k => $v) {
-				echo $k.": ".$value[$k]."\n";
+		switch ($reply) {
+			case 'malut':
+					$this->resultante = (object)$this->malut();
+				break;
+			case 'sulsel':
+					$this->resultante = $this->sulsel();
+				break;
+			default: break;
+		}
+		return $this;
+	}
+
+	public function regional($regional)
+	{
+		foreach ($this->resultante as $keys => $values) {
+			if($keys == $regional) {
+				$this->regional[$regional] = map($values);
 			}
 		}
+		$this->resultante = $this->regional;
+		return $this;
+	}
+
+	public function count()
+	{
+		foreach (Keys::key() as $key) {
+			$this->count[$key] = sum($this->resultante, $key);
+		}
+		return $this->count;
+	}
+
+	public function get()
+	{
+		return $this->resultante;
 	}
 }

@@ -48,6 +48,13 @@ if (! function_exists('map')) {
 	}
 }
 
+if (! function_exists('beforeMap')) {
+	function beforeMap()
+	{
+		//
+	}
+}
+
 if (! function_exists('collect')) {
 	/**
 	 * Collect array
@@ -70,19 +77,20 @@ if (! function_exists('collect')) {
 	}
 }
 
-if(! function_exists('reindex')) {
+if (! function_exists('sum')) {
 	/**
-	 * Reindex array keys
-	 * bisa juga pake array_values instance sih
-	 * @param  array &$array
-	 * @return array
+	 * Sum province
+	 * @param  array $arr
+	 * @param  string $str
+	 * @return int
 	 */
-	function reindex(&$array)
+	function sum($arr, $str)
 	{
-		foreach ($array as $value) {
-			$result[] = $value;
-		}
-		return $result;
+		return array_sum(
+					array_column(
+						(array) $arr, $str
+					)
+				);
 	}
 }
 
