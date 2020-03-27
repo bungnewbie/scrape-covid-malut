@@ -49,6 +49,6 @@ trait Transformers
 
 	public function get()
 	{
-		return pretty($this->resultante);
+		return $this->resultante;
 	}
 }

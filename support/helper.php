@@ -130,6 +130,13 @@ if (! function_exists('command')) {
 	}
 }
 
+if (! function_exists('build_command')) {
+	function build_command()
+	{
+		# code...
+	}
+}
+
 if (! function_exists('unbuild_command')) {
 	/**
 	 * Unbuild command
