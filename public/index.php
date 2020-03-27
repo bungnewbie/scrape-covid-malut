@@ -7,4 +7,8 @@ use Bot\Exe;
 $result = new Exe();
 
 $malut = $result->malut();
-dd(pluck($malut["attribute"], "regional"));
+foreach ($malut["attribute"] as $key => $value) {
+	foreach ($value as $k => $v) {
+		echo $k.": ".$value[$k]."<br>";
+	}
+}

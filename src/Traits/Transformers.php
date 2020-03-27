@@ -7,10 +7,13 @@ use Bot\Constants\Keys;
 
 trait Transformers
 {
-	public function where($reply)
+	public function prov($reply)
 	{
-		$bot 	= new Exe;
-		$result =  $bot->exec($reply);
-		return pluck($result["attribute"], "regional");
+		$bot = new Exe;
+		foreach ($bot->exec($reply)["attribute"] as $key => $value) {
+			foreach ($value as $k => $v) {
+				echo $k.": ".$value[$k]."\n";
+			}
+		}
 	}
 }
