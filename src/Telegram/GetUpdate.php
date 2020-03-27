@@ -50,7 +50,7 @@ class GetUpdate extends Exe
             case command($text) == "/prov":
                     $reply = pluck_reply($text);
                     if(in_array($reply, Keys::province())) {
-                        $this->return($id, $this->exec($reply));
+                        $this->return($id, $reply);
                     } else {
                         if(empty($reply)) {
                             $this->return($id, "mising params");
