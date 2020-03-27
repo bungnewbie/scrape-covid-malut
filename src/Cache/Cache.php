@@ -17,7 +17,7 @@ class Cache
 		$this->expires = time()-2*60*60; // two hours
 	}
 
-	public function available()
+	public function available(): bool
 	{
 		$this->file = storage_path()."cache/".md5(date("Y-m-d")).".json";
 		if(! file_exists($this->file)) {
@@ -30,7 +30,7 @@ class Cache
 		return true;
 	}
 
-	public function make($data)
+	public function make($data): self
 	{
 		file_put_contents($this->file, toJson($data));
 		chmod($this->file, 0777);
