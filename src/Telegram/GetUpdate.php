@@ -66,7 +66,16 @@ class GetUpdate
             case command($text) == "/reg":
                     $prov   = pluck_reply($text, 1);
                     $region = pluck_reply($text, 2);
-                    $this->return($id, $prov." ".$region);
+
+                    if(in_array($prov, Keys::province())) {
+                        $this->return($id, $prov);
+                    } else {
+                        if(empty($prov) || empty($region)) {
+                            $this->return($id, "mising params");
+                        } else {
+                            $this->return($id, "params not found, send /list_of_region to show the list");
+                        }
+                    }
                 break;
             case "/list_of_prov":
                     $content = implode("\n", Keys::province());
