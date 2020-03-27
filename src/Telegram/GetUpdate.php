@@ -67,12 +67,8 @@ class GetUpdate
                     $prov   = pluck_reply($text, 1);
                     $region = pluck_reply($text, 2);
 
-                    if(in_array($prov, Keys::province())) {
-                        if(in_array($region, $this->province($prov)->command())) {
-                            $this->return($id, "hahaha");
-                        } else {
-                            $this->return($id, "params <strong>{$region}</strong> not found, send /list_of_reg to show the list");
-                        }
+                    if(in_array($prov, Keys::province()) && in_array($region, $this->province($prov)->command())) {
+                        $this->return("hahah salah");
                     } else {
                         if(empty($prov) || empty($region)) {
                             $this->return($id, "mising params");
@@ -86,7 +82,7 @@ class GetUpdate
                     $this->return($id, $content);
                 break;
             case "/list_of_reg":
-                    $this->return($id, implode("\n", Keys::regional()));
+                    $this->return($id, "hehehe");
                 break;
             case "/example":
                     $this->return($id, "in progres :)");
