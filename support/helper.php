@@ -111,10 +111,10 @@ if (! function_exists('pluck_reply')) {
 	 * @param  string $string
 	 * @return mixed
 	 */
-	function pluck_reply($string)
+	function pluck_reply($string, $key)
 	{
 		$arr = explode(" ", trim($string));
-		return $arr;
+		return $arr[$key];
 	}
 }
 

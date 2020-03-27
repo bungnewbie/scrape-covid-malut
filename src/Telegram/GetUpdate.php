@@ -52,8 +52,7 @@ class GetUpdate
                     $this->return($id, "coming soon :)");
                 break;
             case command($text) == "/prov":
-                    $reply = pluck_reply($text);
-                    $reply = $reply[1];
+                    $reply = pluck_reply($text, 1);
                     if(in_array($reply, Keys::province())) {
                         $this->return($id, $this->bot->province($reply)->get());
                     } else {
