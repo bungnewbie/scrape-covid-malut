@@ -114,7 +114,7 @@ if (! function_exists('pluck_reply')) {
 	function pluck_reply($string)
 	{
 		$arr = explode(" ", trim($string));
-		return (count($arr)>2)?false:$arr[1];
+		return $arr[count($arr)];
 	}
 }
 
