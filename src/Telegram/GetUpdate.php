@@ -45,6 +45,7 @@ class GetUpdate extends Exe
                     $this->return($id, "coming soon :)");
                 break;
             case "/indonesia":
+                    return $this->sulsel();
                     $this->return($id, "coming soon :)");
                 break;
             case command($text) == "/prov":

@@ -2,7 +2,6 @@
 
 namespace Bot;
 
-use Bot\Constants\Keys;
 use Bot\Crawler\Crawler;
 
 class Exe extends Crawler
@@ -11,7 +10,6 @@ class Exe extends Crawler
 	{
 		switch ($reply) {
 			case 'sulsel':
-					return 'aa';
 					return $this->sulsel();
 				break;
 			case 'malut':
