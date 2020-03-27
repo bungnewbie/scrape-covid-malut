@@ -9,7 +9,7 @@ class Exe extends Crawler
 {
 	public function exec($reply)
 	{
-		if(in_array($reply), Keys::province()) {
+		if(in_array($reply, Keys::province())) {
 			if($reply == "malut") {
 				return $this->malut();
 			}
