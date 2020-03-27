@@ -3,25 +3,30 @@
 namespace Bot\Crawler;
 
 use Goutte\Client;
+use Bot\Cache\Cache;
 use Bot\Crawler\Exceptions\CrawlerException;
 use Symfony\Component\HttpClient\HttpClient;
 
-class Crawler
+class Crawler extends Cache
 {
 	public function scrape($filter, $url)
 	{
 		try {
-			$client  = new Client(HttpClient::create(['timeout' => 60, 'verify_host' => false, 'verify_peer' => false]));
-			$crawler = $client->request("GET", $url);
-			$crawler = $crawler->filter($filter)->each(function ($node) {
-				return $node->text();
-			});
+			if(! $this->available()) {
+				$clients = new Client(HttpClient::create(['timeout' => 60, 'verify_host' => false, 'verify_peer' => false]));
+				$crawler = $clients->request("GET", $url);
+				$crawler = $crawler->filter($filter)->each(function ($node) {
+					return $node->text();
+				});
 
-			return [
-				"attribute" => map($crawler),
-				"scrape_at" => timestamp()
-			];
+				$result = [
+					"attribute" => map($crawler),
+					"scrape_at" => timestamp()
+				];
 
+				return $this->make($result)->push();
+			}
+			return $this->pull();
 		} catch (CrawlerException $e) {
 			return dd($e->getMessage());
 		}

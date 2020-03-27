@@ -2,6 +2,17 @@
 
 use Bot\Constants\Keys;
 
+if (! function_exists('storage_path')) {
+	/**
+	 * Storage path
+	 * @return string
+	 */
+	function storage_path()
+	{
+		return __DIR__."/../storage/";
+	}
+}
+
 if (! function_exists('timestamp')) {
 	/**
 	 * Timestamp Asia/Jakarta

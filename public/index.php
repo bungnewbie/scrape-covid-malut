@@ -7,12 +7,6 @@ use Bot\Constants\Keys;
 
 $result = new Exe();
 
-
-$str = "/reg first second";
-
-dd(pluck_reply($str, 1,2));
-
-
 $pretty = $result->province("malut")->get();
 dd($pretty);
 
