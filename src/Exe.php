@@ -11,6 +11,7 @@ class Exe extends Crawler
 	{
 		switch ($reply) {
 			case 'sulsel':
+					return 'aa';
 					return $this->sulsel();
 				break;
 			case 'malut':
