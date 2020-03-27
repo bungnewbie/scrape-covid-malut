@@ -11,6 +11,6 @@ trait Transformers
 	{
 		$bot 	= new Exe;
 		$result =  $bot->exec($reply);
-		return pluck($result, "regional");
+		return pluck($result["kab_halmahera_barat"], "regional");
 	}
 }
