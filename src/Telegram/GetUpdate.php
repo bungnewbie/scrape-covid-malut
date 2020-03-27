@@ -8,18 +8,19 @@ namespace Bot\Telegram;
  * @author Muhammad Rizkal Lamaau <lamaaurizkhal@gmail.com>
  */
 
+use Bot\Exe;
 use Bot\Constants\Keys;
-use Bot\Traits\Transformers;
 use Bot\Telegram\TelegramBot;
 
 class GetUpdate
 {
-    use Transformers;
+    private $where;
 
     private $telegram;
 
     public function __construct($token)
     {
+        $this->where = new Exe;
         $this->telegram = new TelegramBot($token);
     }
 
@@ -52,7 +53,7 @@ class GetUpdate
             case command($text) == "/prov":
                     $reply = pluck_reply($text);
                     if(in_array($reply, Keys::province())) {
-                        $this->return($id, $this->where($reply));
+                        $this->return($id, $this->where->exec($reply));
                     } else {
                         if(empty($reply)) {
                             $this->return($id, "mising params");
