@@ -72,6 +72,22 @@ if (! function_exists('collect')) {
 	}
 }
 
+if(! function_exists('reindex')) {
+	/**
+	 * Reindex array keys
+	 * bisa juga pake array_values instance sih
+	 * @param  array &$array
+	 * @return array
+	 */
+	function reindex(&$array)
+	{
+		foreach ($array as $value) {
+			$result[] = $value;
+		}
+		return $result;
+	}
+}
+
 if (! function_exists('reply')) {
 	/**
 	 * Reply

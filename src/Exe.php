@@ -9,13 +9,11 @@ class Exe extends Crawler
 	public function exec($reply)
 	{
 		switch ($reply) {
-			case 'sulsel':
-					return $reply;
-					return $this->sulsel();
-				break;
 			case 'malut':
-					return $reply;
 					return $this->malut();
+				break;
+			case 'sulsel':
+					return $this->sulsel()['attribute']['kota_makassar'][0];
 				break;
 			default: break;
 		}
@@ -66,6 +64,6 @@ class Exe extends Crawler
 			}
 		}
 
-		return pretty($args);
+		return $args;
 	}
 }
