@@ -7,7 +7,7 @@ use Bot\Constants\Keys;
 
 trait Transformers
 {
-	public function run($reply)
+	public function where($reply)
 	{
 		$bot = new Exe;
 		return $bot->exec($reply);
