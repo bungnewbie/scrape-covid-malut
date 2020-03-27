@@ -1,0 +1,95 @@
+{
+    "attribute": [
+        {
+            "reg": "Kab. Halmahera Barat",
+            "isn": "73",
+            "odp": "0",
+            "pdp": "1",
+            "sdt": "0",
+            "fst": "0",
+            "die": "0"
+        },
+        {
+            "reg": "Kab. Halmahera Tengah",
+            "isn": "14",
+            "odp": "0",
+            "pdp": "0",
+            "sdt": "0",
+            "fst": "0",
+            "die": "0"
+        },
+        {
+            "reg": "Kab. Kepulauan Sula",
+            "isn": "123",
+            "odp": "8",
+            "pdp": "0",
+            "sdt": "0",
+            "fst": "0",
+            "die": "0"
+        },
+        {
+            "reg": "Kab. Halmahera Selatan",
+            "isn": "26",
+            "odp": "1",
+            "pdp": "0",
+            "sdt": "0",
+            "fst": "0",
+            "die": "0"
+        },
+        {
+            "reg": "Kab. Halmahera Utara",
+            "isn": "84",
+            "odp": "0",
+            "pdp": "0",
+            "sdt": "0",
+            "fst": "0",
+            "die": "0"
+        },
+        {
+            "reg": "Kab. Halmahera Timur",
+            "isn": "165",
+            "odp": "7",
+            "pdp": "0",
+            "sdt": "0",
+            "fst": "0",
+            "die": "0"
+        },
+        {
+            "reg": "Kab. Pulau Morotai",
+            "isn": "196",
+            "odp": "0",
+            "pdp": "0",
+            "sdt": "0",
+            "fst": "0",
+            "die": "0"
+        },
+        {
+            "reg": "Kab. Pulau Taliabu",
+            "isn": "0",
+            "odp": "0",
+            "pdp": "0",
+            "sdt": "0",
+            "fst": "0",
+            "die": "0"
+        },
+        {
+            "reg": "Kota Ternate",
+            "isn": "279",
+            "odp": "23",
+            "pdp": "4",
+            "sdt": "1",
+            "fst": "0",
+            "die": "0"
+        },
+        {
+            "reg": "Kota Tidore Kepulauan",
+            "isn": "317",
+            "odp": "5",
+            "pdp": "0",
+            "sdt": "0",
+            "fst": "0",
+            "die": "0"
+        }
+    ],
+    "scrape_at": "2020-03-28 04:35:14 WIB"
+}
