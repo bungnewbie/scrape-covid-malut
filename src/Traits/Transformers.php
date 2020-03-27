@@ -8,6 +8,8 @@ trait Transformers
 {
 	protected $count;
 
+	protected $prepare;
+
 	protected $province;
 
 	protected $regional;
@@ -18,10 +20,10 @@ trait Transformers
 	{
 		switch ($reply) {
 			case 'malut':
-					$this->resultante = (object)$this->malut();
+					$this->prepare = (object)$this->malut();
 				break;
 			case 'sulsel':
-					$this->resultante = $this->sulsel();
+					$this->prepare = $this->sulsel();
 				break;
 			default: break;
 		}
@@ -30,25 +32,41 @@ trait Transformers
 
 	public function regional($regional)
 	{
-		foreach ($this->resultante as $keys => $values) {
+		foreach ($this->prepare as $keys => $values) {
 			if($keys == $regional) {
 				$this->regional[$regional] = map($values);
 			}
 		}
-		$this->resultante = $this->regional;
+		$this->prepare = $this->regional;
 		return $this;
 	}
 
 	public function count()
 	{
 		foreach (Keys::key() as $key) {
-			$this->count[$key] = sum($this->resultante, $key);
+			$this->count[$key] = sum($this->prepare, $key);
 		}
 		return $this->count;
 	}
 
 	public function get()
 	{
-		return pretty($this->resultante);
+		foreach ($this->prepare as $keys => $values) {
+			if($keys == "attribute") {
+				foreach ($values as $key => $value) {
+					$this->resultante[$keys][replace_dot_with_space(@$value["reg"])] = $value;
+				}
+			}
+		}
+
+		return $this->resultante["attribute"];
+	}
+
+	public function command(): array
+	{
+		foreach ($this->get() as $key => $value) {
+			$keys[] = $key;
+		}
+		return $keys;
 	}
 }

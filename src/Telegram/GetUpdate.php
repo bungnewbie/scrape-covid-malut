@@ -42,7 +42,7 @@ class GetUpdate
                     $this->return($id, $content);
                 break;
             case "/help":
-                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/reg [prov][reg]: where region\n/list_of_prov: show the province list\n/list_of_region: show the region list\n/example: how to use";
+                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/reg [prov][reg]: where region\n/list_of_prov: show the province list\n/list_of_reg: show the region list\n/example: how to use";
                     $this->return($id, $content);
                 break;
             case "/global":
@@ -68,7 +68,11 @@ class GetUpdate
                     $region = pluck_reply($text, 2);
 
                     if(in_array($prov, Keys::province())) {
-                        $this->return($id, $prov);
+                        if(in_array($region, $this->province($prov)->command())) {
+                            $this->return($id, $prov." ".$region);
+                        } else {
+                            $this->return($id, "params <strong>{$region}</strong> not found, send /list_of_reg to show the list");
+                        }
                     } else {
                         if(empty($prov) || empty($region)) {
                             $this->return($id, "mising params");
@@ -81,7 +85,7 @@ class GetUpdate
                     $content = implode("\n", Keys::province());
                     $this->return($id, $content);
                 break;
-            case "/list_of_region":
+            case "/list_of_reg":
                     $this->return($id, implode("\n", Keys::regional()));
                 break;
             case "/example":
