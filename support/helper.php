@@ -109,12 +109,19 @@ if (! function_exists('pluck_reply')) {
 	/**
 	 * Pluck reply from user
 	 * @param  string $string
-	 * @return mixed
+	 * @return array
 	 */
-	function pluck_reply($string, $key)
+	function pluck_reply($string, ...$array)
 	{
 		$arr = explode(" ", trim($string));
-		return $arr[$key];
+		unset($arr[0]);
+		foreach ($array as $k => $value) {
+			$res[$k]=$arr[$value];
+		}
+		if (count($array) > 1) {
+			return @$res;
+		}
+		return @$res[0];
 	}
 }
 

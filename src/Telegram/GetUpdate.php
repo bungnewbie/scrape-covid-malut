@@ -64,17 +64,9 @@ class GetUpdate
                     }
                 break;
             case command($text) == "/reg":
-                    $reply = pluck_reply($text);
-                    $this->return($id, $reply);
-                    // if(in_array($reply, Keys::regional())) {
-                    //     $this->return($id, $reply);
-                    // } else {
-                    //     if(empty($reply)) {
-                    //         $this->return($id, "mising params");
-                    //     } else {
-                    //         $this->return($id, "params not found, send /list_of_prov to show the list");
-                    //     }
-                    // }
+                    $prov   = pluck_reply($text, 1);
+                    $region = pluck_reply($text, 2);
+                    $this->return($id, $prov." ".$region);
                 break;
             case "/list_of_prov":
                     $content = implode("\n", Keys::province());
