@@ -7,9 +7,8 @@ use Bot\Constants\Keys;
 
 trait Transformers
 {
-	public function prov()
+	public function run($reply)
 	{
-		$result = new Exe;
-		return $result->sulsel();
+		return $this->exec($reply);
 	}
 }

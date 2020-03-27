@@ -8,14 +8,13 @@ namespace Bot\Telegram;
  * @author Muhammad Rizkal Lamaau <lamaaurizkhal@gmail.com>
  */
 
-use Bot\Exe;
 use Bot\Constants\Keys;
+use Bot\Traits\Transformers;
 use Bot\Telegram\TelegramBot;
-// use Bot\Traits\Transformers;
 
-class GetUpdate extends Exe
+class GetUpdate
 {
-    // use Transformers;
+    use Transformers;
 
     private $telegram;
 
@@ -51,10 +50,11 @@ class GetUpdate extends Exe
                     $this->return($id, "coming soon :)");
                 break;
             case command($text) == "/prov":
-                    if(in_array(pluck_reply($text), Keys::province())) {
-                        $this->return($id, $this->malut());
+                    $reply = pluck_reply($text);
+                    if(in_array($reply, Keys::province())) {
+                        $this->return($id, $this->run($reply));
                     } else {
-                        if(empty(pluck_reply($text))) {
+                        if(empty($reply)) {
                             $this->return($id, "mising params");
                         } else {
                             $this->return($id, "params not found, send /list_of_prov to show the list");
