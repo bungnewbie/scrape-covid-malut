@@ -12,15 +12,12 @@ use Bot\Exe;
 use Bot\Constants\Keys;
 use Bot\Telegram\TelegramBot;
 
-class GetUpdate
+class GetUpdate extends Exe
 {
-    public $where;
-
     private $telegram;
 
     public function __construct($token)
     {
-        $this->where = new Exe;
         $this->telegram = new TelegramBot($token);
     }
 
@@ -53,7 +50,7 @@ class GetUpdate
             case command($text) == "/prov":
                     $reply = pluck_reply($text);
                     if(in_array($reply, Keys::province())) {
-                        $this->return($id, $this->where->exec($reply));
+                        $this->return($id, $this->exec($reply));
                     } else {
                         if(empty($reply)) {
                             $this->return($id, "mising params");
