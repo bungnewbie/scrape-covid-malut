@@ -10,9 +10,11 @@ class Exe extends Crawler
 	{
 		switch ($reply) {
 			case 'sulsel':
+					return $reply;
 					return $this->sulsel();
 				break;
 			case 'malut':
+					return $reply;
 					return $this->malut();
 				break;
 			default: break;
