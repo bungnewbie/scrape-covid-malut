@@ -14,7 +14,7 @@ use Bot\Telegram\TelegramBot;
 
 class GetUpdate
 {
-    private $where;
+    public $where;
 
     private $telegram;
 
