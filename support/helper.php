@@ -9,7 +9,7 @@ if (! function_exists('storage_path')) {
 	 */
 	function storage_path()
 	{
-		return __DIR__."/../storage/";
+		return __DIR__."/../local/";
 	}
 }
 
