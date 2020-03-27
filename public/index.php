@@ -7,5 +7,4 @@ use Bot\Exe;
 $result = new Exe();
 
 $malut = $result->malut();
-$malut = $result->sulsel();
-dd($malut);
+dd(pluck($malut["attribute"], "regional"));
