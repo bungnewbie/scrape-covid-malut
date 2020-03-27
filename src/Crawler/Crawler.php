@@ -11,7 +11,7 @@ class Crawler
 	public function scrape($filter, $url)
 	{
 		try {
-			$client  = new Client(HttpClient::create(['timeout' => 60, 'verify_peer' => false]));
+			$client  = new Client(HttpClient::create(['verify_peer' => false]));
 			$crawler = $client->request("GET", $url);
 			return $crawler->filter($filter)->each(function ($node) {
 				return $node->text();
