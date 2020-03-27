@@ -9,6 +9,7 @@ trait Transformers
 {
 	public function run($reply)
 	{
-		return $this->exec($reply);
+		$bot = new Exe;
+		return $bot->exec($reply);
 	}
 }
