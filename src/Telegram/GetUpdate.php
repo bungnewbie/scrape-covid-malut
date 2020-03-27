@@ -73,7 +73,7 @@ class GetUpdate
                         if(empty($prov) || empty($region)) {
                             $this->return($id, "mising params");
                         } else {
-                            $this->return($id, "params {$prov} not found, send /list_of_prov to show the list");
+                            $this->return($id, "params <strong>{$prov}</strong> not found, send /list_of_prov to show the list");
                         }
                     }
                 break;
