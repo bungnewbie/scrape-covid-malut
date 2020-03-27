@@ -13,7 +13,7 @@ class Exe extends Crawler
 					return $this->malut();
 				break;
 			case 'sulsel':
-					return $this->sulsel()['attribute']['kota_makassar'][0];
+					return $this->sulsel();
 				break;
 			default: break;
 		}
@@ -25,10 +25,10 @@ class Exe extends Crawler
 		$payload = $this->scrape($filter, "https://covid19.ternatekota.go.id/");
 
 		foreach (map($payload) as $key => $value) {
-			$results["attribute"][replace_dot_with_space($value["wil"])] = $value;
+			$results["attribute"][replace_dot_with_space($value["regional"])] = $value;
 		}
 
-		return pretty($results);
+		return $results;
 	}
 
 	public function sulsel()

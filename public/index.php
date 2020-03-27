@@ -4,8 +4,8 @@ require __DIR__."/../vendor/autoload.php";
 
 use Bot\Exe;
 
-$result = new Exe;
+$result = new Exe();
 
-dd($result->sulsel()['attribute']['kota_makassar'][0]);
-
-print $result->sulsel();
+$malut = $result->malut();
+$malut = $result->sulsel();
+dd($malut);

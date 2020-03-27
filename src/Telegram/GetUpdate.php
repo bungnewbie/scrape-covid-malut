@@ -10,10 +10,13 @@ namespace Bot\Telegram;
 
 use Bot\Exe;
 use Bot\Constants\Keys;
+use Bot\Traits\Transformers;
 use Bot\Telegram\TelegramBot;
 
-class GetUpdate extends Exe
+class GetUpdate
 {
+    use Transformers;
+
     private $telegram;
 
     public function __construct($token)
@@ -50,7 +53,7 @@ class GetUpdate extends Exe
             case command($text) == "/prov":
                     $reply = pluck_reply($text);
                     if(in_array($reply, Keys::province())) {
-                        $this->return($id, $this->exec($reply));
+                        $this->return($id, $this->where($reply));
                     } else {
                         if(empty($reply)) {
                             $this->return($id, "mising params");

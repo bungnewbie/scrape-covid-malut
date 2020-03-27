@@ -9,7 +9,8 @@ trait Transformers
 {
 	public function where($reply)
 	{
-		$bot = new Exe;
-		return $bot->exec($reply);
+		$bot 	= new Exe;
+		$result =  $bot->exec($reply);
+		return pluck($result, "regional");
 	}
 }

@@ -1,5 +1,7 @@
 <?php
 
+use Bot\Constants\Keys;
+
 if (! function_exists('timestamp')) {
 	/**
 	 * Timestamp Asia/Jakarta
@@ -21,7 +23,9 @@ if (! function_exists('pluck')) {
 	function pluck($array, $key)
 	{
 		return array_map(function($v) use($key) {
-			return is_object($v)?$v->key:$v[$key];
+			return is_object($v)
+					?$v->key
+					:$v[$key];
 		}, $array);
 	}
 }
@@ -36,16 +40,10 @@ if (! function_exists('map')) {
 	function map($array)
 	{
 		return array_map(function($i) {
-			return [
-				'wil'	  	 	  => @$i[0],
-				'isolasi_mandiri' => @$i[1],
-				'odp'			  => @$i[2],
-				'pdp'			  => @$i[3],
-				'positif'		  => @$i[4],
-				'sembuh'		  => @$i[5],
-				'meninggal'		  => @$i[6],
-				'scraped_at'	  => timestamp(),
-			];
+			foreach (Keys::key() as $key => $value) {
+				$result[$value] = @$i[$key];
+			}
+			return $result;
 		}, array_chunk($array, 7));
 	}
 }
