@@ -38,9 +38,6 @@ trait Transformers
 					$this->regional[$keys][$regional] = map($value);
 				}
 			}
-			if($keys == "scrape_at") {
-				$this->regional["scrape_at"] = $values;
-			}
 		}
 		$this->prepare = $this->regional;
 		return $this;

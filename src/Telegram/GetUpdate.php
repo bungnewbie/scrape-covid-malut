@@ -68,22 +68,13 @@ class GetUpdate
                     $prov   = pluck_reply($text, 1);
                     $region = pluck_reply($text, 2);
 
-                    if(empty($prov)) {
-                        $this->return($id, "mising prov, send /list_of_prov to show the list");
-                    }
-                    if(empty($region)) {
-                        $this->return($id, "missing region, send /list_of_reg to show the list");
-                    }
-
-                    if(in_array($prov, Keys::province())) {
-                        if (in_array($region, $this->bot->province($prov)->command())) {
-                            $content = pretty($this->bot->province($prov)->regional($region)->get());
-                            $this->return($id, $content);
-                        } else {
-                            $this->return($id, "<strong>{$reg}</strong> not found");
-                        }
+                    if(in_array($prov, Keys::province()) && in_array($region, $this->bot->province($prov)->command())) {
+                        $content = pretty($this->bot->province($prov)->regional($region)->get());
+                        $this->return($id, $content);
                     } else {
-                        $this->return($id, "<strong>{$prov}</strong> not found");
+                        if(empty($prov) || empty($region)) {
+                            $this->return($id, "please chek the params, send /help to show the command");
+                        }
                     }
                 break;
             case "/list_of_prov":
@@ -92,9 +83,6 @@ class GetUpdate
                 break;
             case "/list_of_reg":
                     $this->return($id, "hehehe");
-                break;
-            case "/example":
-                    $this->return($id, "in progres :)");
                 break;
             default:
                     $this->return($id, "command not found :(");

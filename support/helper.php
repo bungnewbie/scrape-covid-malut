@@ -145,7 +145,7 @@ if (! function_exists('map')) {
 		return [
 			"attribute" => $array,
 			"scrape_at" => [
-				"Asia/Jakarta" => timestamp(),
+				"Jakarta" => timestamp(),
 				"UTC" => timestamp("UTC"),
 			]
 		];
