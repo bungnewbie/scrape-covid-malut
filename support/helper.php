@@ -29,11 +29,8 @@ if (! function_exists('timestamp')) {
 	 * Timestamp Asia/Jakarta
 	 * @return string
 	 */
-	function timestamp($param = NULL)
+	function timestamp()
 	{
-		if(! is_null($param)) {
-			date_default_timezone_set($param);
-		}
 		return date('Y-m-d H:i:s T', time());
 	}
 }
@@ -145,8 +142,7 @@ if (! function_exists('map')) {
 		return [
 			"attribute" => $array,
 			"scrape_at" => [
-				"Jakarta" => timestamp(),
-				"UTC" => timestamp("UTC"),
+				"java"  => timestamp()
 			]
 		];
 	}

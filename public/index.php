@@ -7,5 +7,5 @@ use Bot\Constants\Keys;
 
 $result = new Exe();
 
-$reg = $result->province("sulsel")->regional("kota_makassar")->get();
+$reg = $result->province("malut")->get();
 dd(pretty($reg));
