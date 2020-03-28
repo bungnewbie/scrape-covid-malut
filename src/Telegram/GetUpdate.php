@@ -68,8 +68,11 @@ class GetUpdate
                     $prov   = pluck_reply($text, 1);
                     $region = pluck_reply($text, 2);
 
-                    if(in_array($prov, Keys::province()) && in_array($region, $this->province($prov)->command())) {
-                        $this->return("hahah salah");
+                    if(in_array($prov, Keys::province())) {
+                        if (! in_array($region, $this->province($prov)->command())) {
+                            $this->return('ada prov gak ada region')
+                        }
+                        $this->return("ada prov dan region");
                     } else {
                         if(empty($prov) || empty($region)) {
                             $this->return($id, "mising params");
