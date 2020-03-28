@@ -35,7 +35,7 @@ trait Transformers
 		foreach ($this->prepare as $keys => $values) {
 			foreach ($values as $key => $value) {
 				if($key == $regional) {
-					$this->regional[$keys][$regional] = map($value);
+					$this->regional[$keys][$regional] = $value;
 				}
 			}
 		}
