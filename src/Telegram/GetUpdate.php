@@ -70,9 +70,9 @@ class GetUpdate
 
                     if(in_array($prov, Keys::province())) {
                         if (! in_array($region, $this->province($prov)->command())) {
-                            $this->return('ada prov gak ada region')
+                            $this->return($id, 'ada prov gak ada region');
                         }
-                        $this->return("ada prov dan region");
+                        $this->return($id, "ada prov dan region");
                     } else {
                         if(empty($prov) || empty($region)) {
                             $this->return($id, "mising params");
