@@ -8,7 +8,7 @@ abstract class Keys
 	{
 		return [
 			'reg',
-			'isn',
+			'otg',
 			'odp',
 			'pdp',
 			'sdt',

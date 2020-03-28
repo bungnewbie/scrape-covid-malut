@@ -10,11 +10,11 @@ trait Transformers
 
 	protected $prepare;
 
+	protected $commands;
+
 	protected $province;
 
 	protected $regional;
-
-	protected $resultante;
 
 	public function province($reply)
 	{
@@ -33,8 +33,13 @@ trait Transformers
 	public function regional($regional)
 	{
 		foreach ($this->prepare as $keys => $values) {
-			if($keys == $regional) {
-				$this->regional[$regional] = map($values);
+			foreach ($values as $key => $value) {
+				if($key == $regional) {
+					$this->regional[$keys][$regional] = map($value);
+				}
+			}
+			if($keys == "scrape_at") {
+				$this->regional["scrape_at"] = $values;
 			}
 		}
 		$this->prepare = $this->regional;
@@ -51,22 +56,18 @@ trait Transformers
 
 	public function get()
 	{
-		foreach ($this->prepare as $keys => $values) {
-			if($keys == "attribute") {
-				foreach ($values as $key => $value) {
-					$this->resultante[$keys][replace_dot_with_space(@$value["reg"])] = $value;
-				}
-			}
-		}
-
-		return $this->resultante["attribute"];
+		return $this->prepare;
 	}
 
 	public function command(): array
 	{
-		foreach ($this->get() as $key => $value) {
-			$keys[] = $key;
+		foreach ($this->get() as $keys => $values) {
+			foreach ($values as $key => $value) {
+				if($keys == "attribute") {
+					$this->commands[] = $key;
+				}
+			}
 		}
-		return $keys;
+		return $this->commands;
 	}
 }

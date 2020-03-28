@@ -2,6 +2,7 @@
 
 namespace Bot;
 
+use Bot\Cache\Cache;
 use Bot\Crawler\Crawler;
 use Bot\Traits\Transformers;
 
@@ -9,45 +10,50 @@ class Exe extends Crawler
 {
 	use Transformers;
 
+	private $cache;
+
+	public function __construct()
+	{
+		$this->cache = new Cache;
+	}
+
 	public function malut()
 	{
-		$filter  = "table > tbody > tr > td";
-		return $this->scrape($filter, "https://covid19.ternatekota.go.id/");
+		$filter = "table > tbody > tr > td";
+		$client = "https://covid19.ternatekota.go.id/";
+
+		if(! $this->cache->available($client)) {
+
+			$response = $this->scrape($filter, $client);
+
+			foreach (malut_splice($response) as $value) {
+				$results[replace_dot_with_space(@$value["reg"])] = $value;
+			}
+
+			return $this->cache->make(map($results))->push();
+		}
+
+		return $this->cache->pull();
 	}
 
 	public function sulsel()
 	{
-		$filter  = "table#example-2 > tbody > tr";
-		$payload = $this->scrape($filter, "https://covid19.sulselprov.go.id/");
+		$filter = "table#example-2 > tbody > tr";
+		$client = "https://covid19.sulselprov.go.id/";
 
-		foreach ($payload as $key => $value) {
-			$results[][$key] = explode(" ", $value);
-		}
-		foreach ($results as $keys => $values) {
-			foreach ($values as $key => $value) {
-				if(count($value)==7) {
-					$city = $value[1]." ".$value[2];
-					array_splice($value, 1, 1, $city);
-					unset($value[2]);
-				}
-				if(count($value)==8) {
-					$city = $value[1]." ".$value[2]." ".$value[3];
-					array_splice($value, 1, 1, $city);
-					unset($value[2]);
-					unset($value[3]);
-				}
-				if(count($value)==9) {
-					$city = $value[1]." ".$value[2]." ".$value[3]." ".$value[4];
-					array_splice($value, 1, 1, $city);
-					unset($value[2]);
-					unset($value[3]);
-					unset($value[4]);
-				}
-				unset($value[0]);
-				$args["attribute"][replace_with_space($value[1])] = collect(array_values($value));
+		if(! $this->cache->available($client)) {
+
+			$response = $this->scrape($filter, $client);
+
+			foreach ($response as $key => $value) {
+				$results[$key] = explode(" ", $value);
 			}
+
+			$spliced = sulsel_splice($results);
+
+			return $this->cache->make(map($spliced))->push();
 		}
 
-		return $args;
+		return $this->cache->pull();
 	}
 }

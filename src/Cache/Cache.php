@@ -17,9 +17,19 @@ class Cache
 		$this->expires = time()-2*60*60; // two hours
 	}
 
-	public function available(): bool
+	public function mkdir($dirname): string
 	{
-		$this->file = storage_path()."cache/".md5(date("Y-m-d")).".json";
+		$path = cache_path().get_host($dirname);
+		if(! is_dir($path)) {
+			mkdir($path, 0777, true);
+			chmod($path, 0777);
+		}
+		return $path."/";
+	}
+
+	public function available($filename): bool
+	{
+		$this->file = $this->mkdir($filename).md5(get_host($filename)).".json";
 		if(! file_exists($this->file)) {
 			return false;
 		}

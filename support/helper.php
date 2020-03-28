@@ -13,14 +13,42 @@ if (! function_exists('storage_path')) {
 	}
 }
 
+if (! function_exists('cache_path')) {
+	/**
+	 * Storage path
+	 * @return string
+	 */
+	function cache_path()
+	{
+		return storage_path()."cache/";
+	}
+}
+
 if (! function_exists('timestamp')) {
 	/**
 	 * Timestamp Asia/Jakarta
 	 * @return string
 	 */
-	function timestamp()
+	function timestamp($param = NULL)
 	{
+		if(! is_null($param)) {
+			date_default_timezone_set($param);
+		}
 		return date('Y-m-d H:i:s T', time());
+	}
+}
+
+if (! function_exists('get_host')) {
+	/**
+	 * Get domain,
+	 * example: www.fb.com
+	 * result: fb.com
+	 * @param  string $url
+	 * @return string
+	 */
+	function get_host($url)
+	{
+		return parse_url($url)["host"];
 	}
 }
 
@@ -42,13 +70,13 @@ if (! function_exists('pluck')) {
 }
 
 
-if (! function_exists('map')) {
+if (! function_exists('malut_splice')) {
 	/**
-	 * Maping array
+	 * malut_spliceing array
 	 * @param  array $array
 	 * @return array
 	 */
-	function map($array)
+	function malut_splice($array)
 	{
 		return array_map(function($i) {
 			foreach (Keys::key() as $key => $value) {
@@ -59,32 +87,68 @@ if (! function_exists('map')) {
 	}
 }
 
-if (! function_exists('beforeMap')) {
-	function beforeMap()
-	{
-		//
-	}
-}
-
-if (! function_exists('collect')) {
+if (! function_exists('sulsel_splice')) {
 	/**
-	 * Collect array
+	 * Splice and mapping sulsel scrape result
 	 * @param  array $array
 	 * @return array
 	 */
-	function collect($array)
+	function sulsel_splice($array)
 	{
-		return array_map(function($i) {
+		foreach ($array as $key => $value) {
+			if(count($value)==7) {
+				$city = $value[1]." ".$value[2];
+				array_splice($value, 1, 1, $city);
+				unset($value[2]);
+			}
+			if(count($value)==8) {
+				$city = $value[1]." ".$value[2]." ".$value[3];
+				array_splice($value, 1, 1, $city);
+				unset($value[2]);
+				unset($value[3]);
+			}
+			if(count($value)==9) {
+				$city = $value[1]." ".$value[2]." ".$value[3]." ".$value[4];
+				array_splice($value, 1, 1, $city);
+				unset($value[2]);
+				unset($value[3]);
+				unset($value[4]);
+			}
+			unset($value[0]);
+			$prep[$key] = array_values($value);
+		}
+		$map = array_map(function($i) {
 			return [
-				'wil'	  	 => @$i[0],
-				'odp' 	  	 => @$i[1],
-				'pdp' 	  	 => @$i[2],
-				'positif' 	 => @$i[3],
-				'total'   	 => @$i[4],
-				'sembuh'  	 => @$i[5],
-				'scraped_at' => timestamp(),
+				'reg' => $i[0],
+				'odp' => $i[1],
+				'pdp' => $i[2],
+				'sdt' => $i[3],
 			];
-		}, array_chunk($array, 7));
+		}, $prep);
+
+		foreach ($map as $key => $value) {
+			$sliced[replace_with_space($value["reg"])] = $value;
+		}
+
+		return $sliced;
+	}
+}
+
+if (! function_exists('map')) {
+	/**
+	 * Array maping
+	 * @param  array $array
+	 * @return array
+	 */
+	function map($array)
+	{
+		return [
+			"attribute" => $array,
+			"scrape_at" => [
+				"Asia/Jakarta" => timestamp(),
+				"UTC" => timestamp("UTC"),
+			]
+		];
 	}
 }
 
@@ -97,11 +161,7 @@ if (! function_exists('sum')) {
 	 */
 	function sum($arr, $str)
 	{
-		return array_sum(
-					array_column(
-						(array) $arr, $str
-					)
-				);
+		return array_sum(array_column((array) $arr, $str));
 	}
 }
 
