@@ -83,8 +83,12 @@ class GetUpdate
                 break;
             case command($text) == "/list_of_reg":
                     $prov = pluck_reply($text, 1);
-                    $content = implode("\n", $this->bot->province($prov)->command());
-                    $this->return($id, $content);
+                    if (! empty($prov)) {
+                        $content = implode("\n", $this->bot->province($prov)->command());
+                        $this->return($id, $content);
+                    } else {
+                        $this->return($id, "missing prov, send /list_of_prov to show the list");
+                    }
                 break;
             default:
                     $this->return($id, "command not found :(");
