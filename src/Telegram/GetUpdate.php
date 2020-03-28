@@ -54,7 +54,8 @@ class GetUpdate
             case command($text) == "/prov":
                     $reply = pluck_reply($text, 1);
                     if(in_array($reply, Keys::province())) {
-                        $this->return($id, $this->bot->province($reply)->get());
+                        $content = pretty($this->bot->province($reply)->get());
+                        $this->return($id, $content);
                     } else {
                         if(empty($reply)) {
                             $this->return($id, "mising params");
