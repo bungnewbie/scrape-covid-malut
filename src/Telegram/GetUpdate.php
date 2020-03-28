@@ -42,14 +42,14 @@ class GetUpdate
                     $this->return($id, $content);
                 break;
             case "/help":
-                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/reg [prov][reg]: where region\n/list_of_prov: show the province list\n/list_of_reg [prov]: show the region list\n/example: how to use";
+                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/reg [prov][reg]: where region\n/list_of_prov: show the province list\n/list_of_reg [prov]: show the region list";
                     $this->return($id, $content);
                 break;
             case "/global":
-                    $this->return($id, "coming soon :)");
+                    $this->return($id, "per prov kab dulu, global dah banyak :)");
                 break;
             case "/indonesia":
-                    $this->return($id, "coming soon :)");
+                    $this->return($id, "cek sini kalo indonesia bro @MyIceTea_Bot :)");
                 break;
             case command($text) == "/prov":
                     $reply = pluck_reply($text, 1);
