@@ -2,6 +2,11 @@
 
 use Bot\Constants\Keys;
 
+/**
+ * Helper for support bot and scrape
+ * @author Muhammad Rizkhal Lamaau <lamaaurizkhal@gmail.com>
+ */
+
 if (! function_exists('storage_path')) {
 	/**
 	 * Storage path
