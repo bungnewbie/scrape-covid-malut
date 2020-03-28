@@ -69,7 +69,7 @@ class GetUpdate
                     $region = pluck_reply($text, 2);
 
                     if(in_array($prov, Keys::province())) {
-                        if (! in_array($region, $this->province($prov)->command())) {
+                        if (! in_array($region, $this->bot->province($prov)->command())) {
                             $this->return($id, 'ada prov gak ada region');
                         }
                         $this->return($id, "ada prov dan region");
