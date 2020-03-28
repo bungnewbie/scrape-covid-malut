@@ -68,17 +68,22 @@ class GetUpdate
                     $prov   = pluck_reply($text, 1);
                     $region = pluck_reply($text, 2);
 
+                    if(empty($prov)) {
+                        $this->return($id, "mising prov, send /list_of_prov to show the list");
+                    }
+                    if(empty($region)) {
+                        $this->return($id, "missing region, send /list_of_reg to show the list");
+                    }
+
                     if(in_array($prov, Keys::province())) {
-                        if (! in_array($region, $this->bot->province($prov)->command())) {
-                            $this->return($id, 'ada prov gak ada region');
-                        }
-                        $this->return($id, "ada prov dan region");
-                    } else {
-                        if(empty($prov) || empty($region)) {
-                            $this->return($id, "mising params");
+                        if (in_array($region, $this->bot->province($prov)->command())) {
+                            $content = pretty($this->bot->province($prov)->regional($region)->get());
+                            $this->return($id, $content);
                         } else {
-                            $this->return($id, "params <strong>{$prov}</strong> not found, send /list_of_prov to show the list");
+                            $this->return($id, "<strong>{$reg}</strong> not found");
                         }
+                    } else {
+                        $this->return($id, "<strong>{$prov}</strong> not found");
                     }
                 break;
             case "/list_of_prov":
