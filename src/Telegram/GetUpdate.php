@@ -42,7 +42,7 @@ class GetUpdate
                     $this->return($id, $content);
                 break;
             case "/help":
-                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/reg [prov][reg]: where region\n/list_of_prov: show the province list\n/list_of_reg: show the region list\n/example: how to use";
+                    $content = "/global: global data\n/indonesia: only indonesia\n/prov [name]: where province\n/reg [prov][reg]: where region\n/list_of_prov: show the province list\n/list_of_reg [prov]: show the region list\n/example: how to use";
                     $this->return($id, $content);
                 break;
             case "/global":
@@ -81,8 +81,10 @@ class GetUpdate
                     $content = implode("\n", Keys::province());
                     $this->return($id, $content);
                 break;
-            case "/list_of_reg":
-                    $this->return($id, "hehehe");
+            case command($text) == "/list_of_reg":
+                    $prov = pluck_reply($text, 1);
+                    $content = implode("\n", $this->bot->province($prov)->command());
+                    $this->return($id, $content);
                 break;
             default:
                     $this->return($id, "command not found :(");
