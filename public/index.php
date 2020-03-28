@@ -3,9 +3,21 @@
 require __DIR__."/../vendor/autoload.php";
 
 use Bot\Exe;
-use Bot\Constants\Keys;
 
+/**
+ * Instance Exe
+ * @var Exe
+ */
 $result = new Exe();
 
-$reg = $result->province("sulsel")->get();
-dd(pretty($reg));
+/**
+ * Example get where prov
+ * @var array
+ */
+$prov = $result->province("malut")->get();
+
+/**
+ * Example get where prov and regional
+ * @var array
+ */
+$reg  = $result->province("malut")->regional("kota_ternate")->get();

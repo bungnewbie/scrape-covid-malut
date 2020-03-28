@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * @author Muhammad Rizkhal Lamaau <lamaaurizkhal@gmail.com>
+ */
+
 require __DIR__."/../vendor/autoload.php";
 
 use Bot\Telegram\GetUpdate;
