@@ -21,7 +21,7 @@ Installation
 
 From a project directory, run:
 ```
-https://github.com/bungnewbie/scrape-covid-malut
+https://github.com/rizkhal/scrape-covid-malut
 ```
 
 ```
